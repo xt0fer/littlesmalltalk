@@ -1,5 +1,20 @@
 # Little Smalltalk
 
+*Ported to MacOS Big Sur and Mac M1, Sept 2022 by kristofer* 
+
+to run
+```
+git clone *this repo*
+cd littlesmalltalk
+cmake ..
+make
+mkdir ../play
+cp lst lst.img webide.img ../play
+cd ../play
+./lst ./lst.img
+```
+
+
 - [Little Smalltalk](#little-smalltalk)
   - [Platforms](#platforms)
   - [Releases](#releases)
