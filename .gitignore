@@ -9,3 +9,6 @@ build/*
 src/vm/version.h
 .vscode/launch.json
 .vscode/tasks.json
+test.dSYM/
+kris/
+

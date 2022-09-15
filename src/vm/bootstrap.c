@@ -20,14 +20,15 @@ typedef struct {
     char *class_var_str;
 } class_source;
 
+#define NULL ((void *)0)
 
 /* classes used through the bootstrapping process. */
-static struct object *ObjectClass = NULL;
-static struct object *MetaObjectClass = NULL;
+static struct object *ObjectClass= NULL;
+static struct object *MetaObjectClass= NULL;
 static struct object *ClassClass = NULL;
 static struct object *NilClass = NULL;
 static struct object *TrueClass = NULL;
-static struct object *FalseClass = NULL;
+static struct object *FalseClass= NULL;
 //static struct object *StringClass = NULL;
 //static struct object *SymbolClass = NULL;
 static struct object *TreeClass = NULL;
@@ -68,7 +69,7 @@ static struct object *newDictionary(void);
 static struct object *newArray(int size);
 static struct object *newOrderedArray(int size);
 static int symbolCmp(struct object *left, struct object *right);
-static int symbolBareCmp(const uint8_t *left, int leftsize, const uint8_t *right, int rightsize);
+static int symbolBareCmp(const unsigned char *left, int leftsize, const unsigned char *right, int rightsize);
 
 
 
@@ -382,7 +383,7 @@ struct object *newSymbol(char *text)
 
     /* first see if it is already a symbol */
     for (i = 0; i < symbolTop; i++) {
-        if (symbolBareCmp((uint8_t *)text, (int)strlen(text), bytePtr(oldSymbols[i]), SIZE(oldSymbols[i])) == 0) {
+        if (symbolBareCmp((unsigned char *)text, (int)strlen(text), bytePtr(oldSymbols[i]), SIZE(oldSymbols[i])) == 0) {
             return oldSymbols[i];
         }
     }
@@ -390,7 +391,7 @@ struct object *newSymbol(char *text)
     /* not there, make a new one */
     result = (struct byteObject *)gcialloc((int)strlen(text));
     for (i = 0; i < (int)strlen(text); i++) {
-        result->bytes[i] = (uint8_t)text[i];
+        result->bytes[i] = (unsigned char)text[i];
     }
     result->class = lookupGlobalName("Symbol", 0);
     oldSymbols[symbolTop++] = (struct object *) result;
@@ -451,7 +452,7 @@ int symbolCmp(struct object *left, struct object *right)
 }
 
 
-int symbolBareCmp(const uint8_t *left, int leftsize, const uint8_t *right, int rightsize)
+int symbolBareCmp(const unsigned char *left, int leftsize, const unsigned char *right, int rightsize)
 {
     int32_t minsize = leftsize;
     int32_t i;

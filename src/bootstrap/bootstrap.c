@@ -1906,11 +1906,11 @@ void MethodCommand(void)
 
 void ClassCommand(void)
 {
-    char *superclassName = NULL;
-    char *instClassName = NULL;
-    char *metaclassName = NULL;
-    char *instVars = NULL;
-    char *classVars = NULL;
+    char *superclassName[512];
+    char *instClassName[512];
+    char *metaclassName;
+    char *instVars[512];
+    char *classVars[512];
     struct object *metaClass, *superClass, *instClass;
     size_t metaclassNameSize;
     int instsize = 0;
@@ -1918,9 +1918,12 @@ void ClassCommand(void)
 
     /* parse lines like:
      * +SuperClass subclass: #NewClass variables: #( instVars ) classVariables: #( classVars )
+     * +nil subclass: #Object variables: #( ) classVariables: #( )
      */
-    if(sscanf(inputBuffer, "+%m[a-zA-Z] subclass: #%m[a-zA-Z] variables: #(%m[ a-zA-Z]) classVariables: #(%m[ a-zA-Z])",
+    info("{%s}",inputBuffer);
+    if(sscanf(inputBuffer, "+%[a-zA-Z] subclass: #%[a-zA-Z] variables: #(%[ a-zA-Z]) classVariables: #(%[ a-zA-Z])",
                             &superclassName,      &instClassName,         &instVars,                     &classVars) != 4) {
+        info("%s %s %s %s", superclassName, instClassName, instVars, classVars );
         parseError("Unable to parse class creation line!");
     }
 
@@ -2032,11 +2035,11 @@ void ClassCommand(void)
     instClass->data[methodsInClass] = newDictionary();
     instClass->class = metaClass;
 
-    free(superclassName);
-    free(instClassName);
+    //free(superclassName);
+    //free(instClassName);
     free(metaclassName);
-    free(instVars);
-    free(classVars);
+    //free(instVars);
+    //free(classVars);
 }
 
 

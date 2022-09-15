@@ -835,7 +835,7 @@ int fileIn_version_2(FILE *fp)
 
     /* how many cells? */
     totalCells = ((int)(((intptr_t)imageTop - (intptr_t)imagePointer)))/(int)BytesPerWord;
-    fprintf(stderr, "Image has %ld cells.\n", totalCells);
+    fprintf(stderr, "Image has %lld cells.\n", totalCells);
 
     fprintf(stderr, "memoryBase is %p\n", (void *)memoryBase);
     fprintf(stderr, "memoryPointer is %p\n", (void *)memoryPointer);
@@ -843,10 +843,10 @@ int fileIn_version_2(FILE *fp)
 
     /* what is the offset between the saved pointer and our current pointer? In cells! */
     newOffset = (int64_t)((intptr_t)memoryBase - (intptr_t)imageBase);
-    fprintf(stderr, "Address offset between image and current memory pointer is %ld bytes.\n", newOffset);
+    fprintf(stderr, "Address offset between image and current memory pointer is %lld bytes.\n", newOffset);
 
     newOffset = (int64_t)newOffset/(int64_t)BytesPerWord;
-    fprintf(stderr, "Address offset between image and current memory pointer is %ld cells.\n", newOffset);
+    fprintf(stderr, "Address offset between image and current memory pointer is %lld cells.\n", newOffset);
 
     /* set up lower pointer */
     memoryPointer = WORDSDOWN(memoryTop, totalCells);
@@ -933,7 +933,7 @@ int fileIn_version_2(FILE *fp)
 
     fprintf(stderr, "Object fix up took %d usec.\n", (int)(end - start));
 
-    fprintf(stderr, "Read in %ld cells.\n", totalCells);
+    fprintf(stderr, "Read in %lld cells.\n", totalCells);
 
     return (int)totalCells;
 }
