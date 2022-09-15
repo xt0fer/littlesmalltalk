@@ -6,6 +6,8 @@ to run
 ```
 git clone *this repo*
 cd littlesmalltalk
+mkdir build
+cd build
 cmake ..
 make
 mkdir ../play
