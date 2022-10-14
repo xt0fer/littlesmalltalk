@@ -16,6 +16,8 @@ cd ../play
 ./lst ./lst.img
 ```
 
+Having found the text to an unfinished book in the original LSTv4 source, a lot of things make sense now.
+See [A Little More Smalltalk](.docs/ALittleMoreSmalltalk.pdf).
 
 - [Little Smalltalk](#little-smalltalk)
   - [Platforms](#platforms)

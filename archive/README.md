@@ -122,7 +122,7 @@ Unfortunately with version 4 Timothy also introduces license terms that forbid t
 of the LittleSmalltalk system in commercial projects etc.
 But fortunately Timothy allowed me (Danny Reinhold) to completely remove those license
 terms and define my own license for the LittleSmalltalk system. So it is now as free as
-possible in terms of beer and speach...
+possible in terms of beer and speech...
 
 Version 4 is quite advanced and harder to understand than earlier versions since most
 functionality is not readable in the C source code.
