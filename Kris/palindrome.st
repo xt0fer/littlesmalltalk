@@ -6,20 +6,19 @@ isPalindrome | string |
     ^ string = string reverse
 !
 / next, add a test case 
-+Object subclass: #Pal 
-!Pal
++Object subclass: #Palindrome
+!Palindrome
 test: aString
     aString print.
     ' : ' print.
     aString isPalindrome print.
     Char newline print.
 !
-!Pal
+!Palindrome
 runTests
     self test: 'A Man, A Plan, A Canal, Panama'.
     self test: 'foo bar baz'.
     self test: 'radar'
 !
-+Pal new runTests
++Palindrome new runTests
 / end of file
-
