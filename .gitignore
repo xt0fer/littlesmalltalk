@@ -12,3 +12,4 @@ src/vm/version.h
 test.dSYM/
 test
 play/
+.DS_Store
