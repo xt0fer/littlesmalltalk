@@ -10,9 +10,9 @@ mkdir build
 cd build
 cmake ..
 make
-mkdir ../play
-cp lst lst.img webide.img ../play
-cd ../play
+mkdir play
+cp lst lst.img webide.img play/
+cd play
 ./lst ./lst.img
 ```
 
